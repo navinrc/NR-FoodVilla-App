@@ -3,10 +3,11 @@ import { restaurantList } from "../../constants";
 import { useState } from "react";
 
 const filterData = (searchText, restaurants) => {
-  return (searchText.trim() === "") ? restaurants :
-   restaurants.filter((restaurant) =>
-    restaurant.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-  );
+  return searchText.trim() === ""
+    ? restaurants
+    : restaurants.filter((restaurant) =>
+        restaurant.data?.name?.toLowerCase().includes(searchText.toLowerCase())
+      );
 };
 
 const Body = () => {
@@ -36,7 +37,6 @@ const Body = () => {
             const filteredResponse = filterData(searchText, restaurants);
             setFilteredRestaurants(filteredResponse);
           }}
-          
         >
           Search
         </button>
